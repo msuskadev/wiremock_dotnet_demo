@@ -8,4 +8,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="WireMock.Net.StandAlone" Version="1.5.46" />
+  </ItemGroup>
+
 </Project>

@@ -1,3 +1,7 @@
 {
-    "dotnet.defaultSolution": "wiremock-demo.sln"
+    "dotnet.defaultSolution": "wiremock-demo.sln",
+    "csharp.debug.justMyCode": false,
+    "csharp.debug.console": "externalTerminal",
+    // following entry is to get rid of blizzard of messages "Cannot find or open the PDB file."
+    "csharp.debug.logging.moduleLoad": false
 }
