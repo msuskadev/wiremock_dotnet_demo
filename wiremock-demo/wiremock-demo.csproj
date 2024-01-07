@@ -14,4 +14,9 @@
     <PackageReference Include="WireMock.Net.StandAlone" Version="1.5.46" />
   </ItemGroup>
 
+<ItemGroup>
+	<None Include="__admin\mappings\*">
+		<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	</None>
+</ItemGroup>
 </Project>

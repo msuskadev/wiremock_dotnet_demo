@@ -1,5 +1,6 @@
 ﻿using Spectre.Console;
 using WireMock.Server;
+using WireMock.Settings;
 
 ShowTitle();
 RunWiremockServer(3000);
@@ -15,6 +16,12 @@ void ShowTitle()
 
 void RunWiremockServer(int port)
 {
-    var server = WireMockServer.Start(port);
+    var server = WireMockServer.Start(new WireMockServerSettings {
+        Port = port,
+        ReadStaticMappings = true,
+        StartAdminInterface = true,         
+        // Logger = new WireMockConsoleLogger(),
+    });    
+
     AnsiConsole.WriteLine($"Wiremock server listening on http://localhost:{server.Port}");
 }
