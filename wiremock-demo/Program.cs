@@ -1,18 +1,20 @@
-﻿using WireMock.RequestBuilders;
-using WireMock.ResponseBuilders;
+﻿using Spectre.Console;
 using WireMock.Server;
 
-var server = WireMockServer.Start(3000);
+ShowTitle();
+RunWiremockServer(3000);
+AnsiConsole.WriteLine("Press any key to stop server...");
+Console.ReadLine();
 
-server
-  .Given(
-    Request.Create().WithPath("/some/thing").UsingGet()
-  )
-  .RespondWith(
-    Response.Create()
-      .WithStatusCode(200)
-      .WithHeader("Content-Type", "text/plain")
-      .WithBody("Hello world!")
-  );
+void ShowTitle()
+{
+    AnsiConsole.Write(new FigletText("Wiremock Demo")
+        .Centered()
+        .Color(Color.DarkSeaGreen4_1));
+}
 
-  Console.ReadLine();
+void RunWiremockServer(int port)
+{
+    var server = WireMockServer.Start(port);
+    AnsiConsole.WriteLine($"Wiremock server listening on http://localhost:{server.Port}");
+}
